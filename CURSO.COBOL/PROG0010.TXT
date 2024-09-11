@@ -1,0 +1,46 @@
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID.                PROG0010.
+       AUTHOR.                    YAUL HORACIO.
+       INSTALATION.               NA.
+       DATE-WRITTEN.              21/08/24.
+       DATE-COMPILED.
+       SECURITY.                  NO ES CONFIDENCIAL.
+
+       *---------------------------------------------------------------*
+       * OBJETIVO: LEER E IMPRIMIR EL ARCHIVO DE LOS EMPLEADOS DE LA   *
+       *          EMPRESA                                              *
+       *---------------------------------------------------------------*
+       ENVIROMENT DIVISION.
+       CONFIGURATION SECTION.
+       SOURCE-COMPUTER.           IBM-3083.
+       OBJECT-COMPUTER.           IBM-3083.
+       INPUT-OUTPUT SECTION.
+       FILE-CONTROL.
+           SELECT EMPLEADOS ASSIGN TO UT-S-EMPLEADO.
+           SELECT REPORTE ASSIGN TO UT-S-REPORTE.
+
+       DATA DIVISION.
+       FILES SECTION.
+       FD EMPLEADOS.
+          LABEL RECORDS ARE STANDARD
+          RECORD CONTAIND 50 CHARACTERS
+          BLOCK CONTAINS 0 RECORDS
+          DATA RECORD IS REG-EMPLEADOS.
+       01 REG-EMPLEADOS          PIC X(50)
+       FD REPORTE.
+          LABEL RECORDS ARE STANDARD
+          RECORD CONTAIND 50 CHARACTERS
+          BLOCK CONTAINS 0 RECORDS
+          DATA RECORD IS REG-REPORTE.
+       01 REG-REPORTE            PIC X(50)
+
+       WORKING-STORAGE-SECTION.
+       01 WS-REG-EMPLEADOS.
+          05 WS-REG-EMPLEADOS.
+             10 WS-NUMERO-EMP   PIC 9(05).
+             10 WS-NOMBRE-EMP   PIC X(30).
+             10 WS-STATUS-EMP   PIC 9(01).
+             10 WS-NUMERO-EMP   PIC 9(05).
+             10 WS-NOMBRE-EMP   PIC X(30).
+             10 WS-STATUS-EMP   PIC 9(01).
+
